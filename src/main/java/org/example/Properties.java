@@ -1,0 +1,11 @@
+package org.example;
+
+public class Properties {
+    private String label;
+    private String value;
+
+    public Properties(String label, String value) {
+        this.label = label;
+        this.value = value;
+    }
+}
