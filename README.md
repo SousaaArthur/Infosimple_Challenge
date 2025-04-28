@@ -5,6 +5,26 @@ Este projeto é a solução para o desafio técnico da **Infosimples**.
 Consiste na criação de um **web scraper** que extrai informações de um produto de uma página web e gera um arquivo **JSON** estruturado com os dados solicitados.
 
 ---
+## 🎯 Relatório Técnico
+Este código foi inteiramente desenvolvido por mim, utilizando todos os conhecimentos adquiridos ao longo dos meus estudos e práticas.
+
+Durante o desenvolvimento, apliquei princípios de código limpo para facilitar a leitura, manter a organização e garantir a legibilidade do projeto.
+
+Além disso, para reforçar meu aprendizado utlizei consultas e boas práticas de uso das bibliotecas, utilizei as seguintes referências:
+
+### 📚 Documentações oficiais:
+[Documentação oficial do JSoup](https://jsoup.org/apidocs/)
+
+[JSoup na Oracle](https://www.oracle.com/corporate/features/jsoup-html-parsing-library.html)
+
+[Documentação oficial do GSon](https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/Gson.html)
+
+### 🌐 Sites de consulta:
+[DevMedia](https://www.devmedia.com.br/como-converter-objetos-java-para-ou-de-json-com-a-biblioteca-gson/28091) - Como converter objetos Java para JSON com Gson
+
+[StackOverflow](https://stackoverflow.com/) - Comunidade de soluções e dúvidas técnicas
+
+---
 
 ## 📜 Sobre o desafio
 
@@ -39,13 +59,14 @@ Todo o conteúdo extraído devera ser salvo em um arquivo **JSON**.
 ## 🧩 Estrutura do projeto
 
 ```
-    | org/example // Pasta do projeto
-        | Main.java // Classe principal que realiza a extração
-        | Products.java // Modelo de dados para os produtos (skus)
-        | produtos.json // Modelo de dados para propriedades do produto
-        |  Properties.java // Modelo de dados para avaliações
-        |  Reviews.java // Classe que agrupa todas as informações extraídas /output/
-        |  ScrapingCollection.java // Arquivo JSON gerado com os dados do produto
+    |_org/example // Pasta do projeto
+    |  |_model
+    |  |_Products.java // Modelo de dados para os produtos (skus)
+    |  |_produtos.json // Modelo de dados para propriedades do produto
+    |  |_Properties.java // Modelo de dados para avaliações
+    |  |_Reviews.java // Classe que agrupa todas as informações extraídas /output/
+    |_Main.java // Classe principal que realiza a extração
+    |_ScrapingCollection.java // Arquivo JSON gerado com os dados do produto
 ```
 
 ---
