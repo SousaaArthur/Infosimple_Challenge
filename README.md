@@ -38,7 +38,7 @@ Todo o conteúdo extraído devera ser salvo em um arquivo **JSON**.
 
 ## 🧩 Estrutura do projeto
 
-```bash
+```
     | org/example // Pasta do projeto
         | Main.java // Classe principal que realiza a extração
         | Products.java // Modelo de dados para os produtos (skus)
