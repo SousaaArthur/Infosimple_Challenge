@@ -8,13 +8,13 @@ public class ScrapingCollection {
     private String brand;
     private List<String> categories;
     private String description;
-    private ArrayList<Products> products;
-    private ArrayList<Properties> properties;
-    private ArrayList<Reviews> reviews;
+    private List<Products> products;
+    private List<Properties> properties;
+    private List<Reviews> reviews;
     private float reviews_avarage_score;
     private String url;
 
-    public ScrapingCollection(String title, String brand, List<String> categories, String description, ArrayList<Products> products, ArrayList<Properties> properties, ArrayList<Reviews> reviews, float reviews_avarage_score, String url) {
+    public ScrapingCollection(String title, String brand, List<String> categories, String description, List<Products> products, List<Properties> properties, List<Reviews> reviews, float reviews_avarage_score, String url) {
         this.title = title;
         this.brand = brand;
         this.categories = categories;

@@ -13,20 +13,4 @@ public class Products {
         this.available = available;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Float getCurrent_price() {
-        return current_price;
-    }
-
-    public Float getOld_price() {
-        return old_price;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
 }
