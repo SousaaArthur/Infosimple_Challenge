@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public class Reviews {
     private String name;
@@ -11,5 +11,9 @@ public class Reviews {
         this.date = date;
         this.score = score;
         this.text = text;
+    }
+
+    public int getScore() {
+        return score;
     }
 }
