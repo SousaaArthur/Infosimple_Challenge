@@ -1,5 +1,6 @@
 package org.example.model;
 
+// Objetos de propriedades
 public class Reviews {
     private String name;
     private String date;

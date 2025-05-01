@@ -2,6 +2,7 @@ package org.example.model;
 
 import java.util.List;
 
+// Objetos de coleção dos dados
 public class ScrapingCollection {
     private String title;
     private String brand;
@@ -23,9 +24,5 @@ public class ScrapingCollection {
         this.reviews = reviews;
         this.reviews_avarage_score = reviews_avarage_score;
         this.url = url;
-    }
-
-    public ScrapingCollection() {
-
     }
 }

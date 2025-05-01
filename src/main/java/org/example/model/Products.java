@@ -1,5 +1,6 @@
 package org.example.model;
 
+// Objetos de produtos
 public class Products {
     private String name;
     private Float current_price;

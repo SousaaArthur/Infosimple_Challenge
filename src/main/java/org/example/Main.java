@@ -1,6 +1,6 @@
 package org.example;
 
-
+// ==== IMPORTS ====
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.example.model.Products;
@@ -16,20 +16,30 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+// ===================
 
+// ==== AVISO ====
+// Antes de executar o programa recomendo que exclua o arquivo produtos.json
+// Para visualizar a criação do arquivo ao executar o programa
 public class Main {
+    // Metodo principal
+    // Esse metodo executara todo o processo de scraping
     public static void main(String[] args) {
-
+        // ==== SCRAPING ====
+        // Try catch para evitar erros
         try {
+            // Conectando ao site e obtendo o documento HTML
             Document doc = Jsoup.connect("https://infosimples.com/vagas/desafio/commercia/product.html")
                     .timeout(0)
                     .get();
 
+            // Extraindo os dados do sites
             String title = doc.select("#product_title").text();
             String brand = doc.select(".brand").text();
             String description = doc.select(".proddet > p").text();
             String url = doc.location();
 
+            // Obtendo as listas de categorias, produtos, propriedades e reviews
             List<String> categories = getCategories(doc);
             List<Products> products = getProducts(doc);
             List<Properties> properties = getProperties(doc);
@@ -37,11 +47,13 @@ public class Main {
 
             float averageScore = getAverageScore(reviews);
 
-            ScrapingCollection Scrapping = new ScrapingCollection(title, brand, categories, description, products, properties, reviews, averageScore, url);
+            // Criando o objeto de coleção
+            ScrapingCollection Scraping = new ScrapingCollection(title, brand, categories, description, products, properties, reviews, averageScore, url);
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String json = gson.toJson(Scrapping);
+            String json = gson.toJson(Scraping);
 
+            // Escrevendo o JSON em um arquivo
             try {
                 FileWriter writer = new FileWriter("src/main/java/org/example/produtos.json");
                 writer.write(json);
@@ -56,9 +68,10 @@ public class Main {
             e.printStackTrace();
             System.out.println("Não foi possivel obter o link da pagina HTML ❌");
         }
-
     }
 
+    // Metodo para obter a ArrayList das categorias
+    // Esse metodo ira retornar uma lista com as categorias do produto
     public static List<String> getCategories(Document doc){
         List<String> categories = new ArrayList<>();
         Elements quantCategories = doc.select(".current-category > a");
@@ -68,6 +81,8 @@ public class Main {
         return categories;
     }
 
+    // Metodo para obter o ArrayList dos produtos
+    // Esse metodo ira retornar uma lista com os produtos do site
     public static List<Products> getProducts(Document doc){
         List<Products> products = new ArrayList<>();
 
@@ -103,6 +118,8 @@ public class Main {
         return products;
     }
 
+    // Metodo para obter o ArrayList das propriedades
+    // Esse metodo ira retornar uma lista com as propriedades do produto
     public static List<Properties> getProperties(Document doc){
         List<Properties> properties = new ArrayList<>();
         Elements tables = doc.select(".pure-table");
@@ -117,6 +134,8 @@ public class Main {
         return properties;
     }
 
+    // Metodo para obter o ArrayList das reviews
+    // Esse metodo ira retornar uma lista com as reviews do produto
     public static List<Reviews> getReviews(Document doc){
         List<Reviews> reviews = new ArrayList<>();
         Elements analysisBoxes = doc.select(".analisebox");
@@ -135,6 +154,8 @@ public class Main {
         return reviews;
     }
 
+    // Metodo para calcular a media das reviews
+    // Esse metodo ira retornar a media das reviews do produto
     public static float getAverageScore(List<Reviews> reviews){
         float averageScore;
         float totalScore = 0;
@@ -153,6 +174,8 @@ public class Main {
         return averageScore;
     }
 
+    // Metodo para converter o preço
+    // Esse metodo ira converter o preço do produto para o formato correto
     public static Float convertNumber(String txtPrice){
         return Float.parseFloat(txtPrice
                 .replace("R$", "")
@@ -160,6 +183,8 @@ public class Main {
         );
     }
 
+    // Metodo para formatar a media
+    // Esse metodo ira formatar a media das reviews para o formato correto
     public static float numberFormat(float calcAverage){
         String formatted = String.format("%.1f", calcAverage).replace(",", ".");
         return Float.parseFloat(formatted);
